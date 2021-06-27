@@ -3,7 +3,9 @@
     <popit-item-circle
       @togglePopitItem="togglePopitItem"
       :id="popitItem.id"
+      :class="{'app-popit__item_clicked': popitItem.isClicked}"
     />
+    popitItem.isClicked={{ popitItem.isClicked }}
   </div>
 </template>
 
@@ -22,7 +24,7 @@ export default class PopitItemRow extends Vue {
   popitItem: IPopitItem[];
 
   togglePopitItem(id) {
-    console.log('togglePopitItem', id);
+    this.$emit('togglePopitItem', id);
   }
 }
 </script>

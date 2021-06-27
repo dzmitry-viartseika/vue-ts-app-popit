@@ -32,6 +32,10 @@ export default class PopitItemCircle extends Vue {
   height: 100%;
 }
 
+.app-popit__item_clicked {
+  background: green;
+}
+
 .checked {
   filter: brightness(0.8);
 }

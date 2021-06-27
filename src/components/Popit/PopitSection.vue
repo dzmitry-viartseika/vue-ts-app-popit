@@ -4,6 +4,7 @@
       v-for="popitItem in popitItemList"
       :key="popitItem.id"
       :popitItem="popitItem"
+      @togglePopitItem="togglePopitItem"
     />
   </div>
 </template>
@@ -21,6 +22,13 @@ import PopitItemRow from '@/components/Popit/PopitItemRow.vue';
 export default class PopitSection extends Vue {
   @Prop({ required: true })
   popitItemList: IPopitItem[];
+
+  togglePopitItem(id) {
+    const currentPopitItem = this.popitItemList.find((item) => item.id === id) as IPopitItem;
+    console.log('currentPopitItem', currentPopitItem);
+    currentPopitItem.isClicked = !currentPopitItem.isClicked;
+    console.log('currentPopitItem', currentPopitItem);
+  }
 }
 </script>
 
