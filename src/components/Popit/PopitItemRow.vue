@@ -5,7 +5,6 @@
       :id="popitItem.id"
       :class="{'app-popit__item_clicked': popitItem.isClicked}"
     />
-    popitItem.isClicked={{ popitItem.isClicked }}
   </div>
 </template>
 

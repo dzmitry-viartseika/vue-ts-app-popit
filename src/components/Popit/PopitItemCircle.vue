@@ -3,7 +3,6 @@
        :class="{colorClass}"
        @click="togglePopitItem"
   >
-    {{ id }}
   </div>
 </template>
 
