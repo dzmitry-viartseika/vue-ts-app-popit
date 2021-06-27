@@ -1,7 +1,14 @@
 <template>
   <div class="app">
     <div class="app-container">
-      <PopitSection :popitItemList="popitItemList"/>
+      <PopitSection
+        :popitItemList="popitItemList"
+        :score.sync="score"
+      />
+      <div class="app-navigation">
+        <button @click="resetScore">Reset</button>
+        <div>Score: {{ score }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -10,6 +17,8 @@
 import { Vue, Component } from 'vue-property-decorator';
 import PopitSection from '@/components/Popit/PopitSection.vue';
 import { IPopitItem } from '@/models.d';
+// eslint-disable-next-line import/no-unresolved,@typescript-eslint/no-var-requires
+const someSoundOut = require('@/assets/audio/popout.mp3');
 
 @Component({
   components: {
@@ -198,7 +207,34 @@ export default class App extends Vue {
       isClicked: false,
       colorClass: 'orange',
     },
-  ]
+  ];
+
+  score = 0;
+
+  someSoundOut: string;
+
+  get getSoundOut(): string {
+    return someSoundOut;
+  }
+
+  playSoundOut() {
+    const note = new Audio(this.getSoundOut);
+    note.addEventListener('canplaythrough', () => {
+      note.play();
+    });
+  }
+
+  resetScore(): void {
+    this.score = 0;
+    this.playSoundOut();
+    this.popitItemList.forEach((item) => {
+      if (item.isClicked) {
+        // eslint-disable-next-line no-param-reassign
+        item.isClicked = false;
+      }
+      return item;
+    });
+  }
 }
 
 </script>
