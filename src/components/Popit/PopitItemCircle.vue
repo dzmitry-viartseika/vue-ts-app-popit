@@ -27,7 +27,7 @@ export default class PopitItemCircle extends Vue {
 @import "@/assets/scss/variables";
 .app-popit__circle {
   border-radius: 50%;
-  border: 4px solid black;
+  border: 2px solid black;
   height: 100%;
 }
 
