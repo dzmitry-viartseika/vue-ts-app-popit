@@ -1,12 +1,15 @@
 <template>
   <div class="app">
     <div class="app-container">
-      <PopitSection
+      <popit-section
         :popitItemList="popitItemList"
         :score.sync="score"
       />
       <div class="app-navigation">
-        <button @click="resetScore">Reset</button>
+        <button-template
+          :button-text="'Reset'"
+          @handleClickEvent="handleClickEvent"
+        />
         <div>Score: {{ score }}</div>
       </div>
     </div>
@@ -16,6 +19,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import PopitSection from '@/components/Popit/PopitSection.vue';
+import ButtonTemplate from '@/components/shared/ButtonTemplate.vue';
 import { IPopitItem } from '@/models.d';
 // eslint-disable-next-line import/no-unresolved,@typescript-eslint/no-var-requires
 const someSoundOut = require('@/assets/audio/popout.mp3');
@@ -23,6 +27,7 @@ const someSoundOut = require('@/assets/audio/popout.mp3');
 @Component({
   components: {
     PopitSection,
+    ButtonTemplate,
   },
 })
 export default class App extends Vue {
@@ -211,10 +216,12 @@ export default class App extends Vue {
 
   score = 0;
 
-  someSoundOut: string;
-
   get getSoundOut(): string {
     return someSoundOut;
+  }
+
+  handleClickEvent(): void {
+    console.log('handleClickEvent');
   }
 
   playSoundOut() {
@@ -241,5 +248,13 @@ export default class App extends Vue {
 
 <style lang="scss">
 @import '@/assets/scss/style.scss';
+
+.app {
+  padding: 20px;
+  &-navigation {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 
 </style>

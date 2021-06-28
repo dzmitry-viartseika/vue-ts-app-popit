@@ -3,7 +3,7 @@
     <popit-item-circle
       @togglePopitItem="togglePopitItem"
       :id="popitItem.id"
-      :class="{'app-popit__item_clicked': popitItem.isClicked}"
+      :color="popitItem.colorClass"
     />
   </div>
 </template>

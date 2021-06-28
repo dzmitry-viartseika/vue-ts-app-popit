@@ -33,10 +33,6 @@ export default class PopitSection extends Vue {
   @PropSync('score', { required: true })
   public scoreSynced: number;
 
-  someSoundIn: string;
-
-  someSoundOut: string;
-
   get getSoundIn(): string {
     return someSoundIn;
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="app-popit__circle"
-       :class="{colorClass}"
+       :style="(isClicked) ? {'background': color} : ''"
        @click="togglePopitItem"
   >
   </div>
@@ -15,24 +15,30 @@ export default class PopitItemCircle extends Vue {
   id: number;
 
   @Prop({ type: String })
-  colorClass: string;
+  color: string;
+
+  isClicked = false;
 
   togglePopitItem(): void {
     this.$emit('togglePopitItem', this.id);
+    this.isClicked = !this.isClicked;
   }
 }
 </script>
 
 <style scoped lang="scss">
 @import "@/assets/scss/variables";
+
 .app-popit__circle {
   border-radius: 50%;
   border: 2px solid black;
   height: 100%;
-}
+  cursor: pointer;
+  transition: opacity .15s ease-in;
 
-.app-popit__item_clicked {
-  background: green;
+  &:hover {
+    opacity: .8;
+  }
 }
 
 .checked {
