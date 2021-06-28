@@ -2,6 +2,7 @@
   <button
     class="btn"
     @click="handleClickEvent"
+    :title="buttonText"
   >
     {{ buttonText }}
   </button>
