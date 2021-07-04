@@ -12,7 +12,7 @@ You will also see any lint errors in the console.
 
 <h2>Demo screenshot below</h2>
 
-![image](http://joxi.ru/a2X6LN9Hl4pZ3r)
+![image](![image](https://user-images.githubusercontent.com/35404801/124380478-67054a00-dcc5-11eb-8beb-c14773489b87.png))
 
 <h3>Project stack:</h3> 
 Vue 2.6, vue-class-component, vuex-module-decorators
