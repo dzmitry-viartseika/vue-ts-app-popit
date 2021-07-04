@@ -76,17 +76,11 @@ export default class PopitSection extends Vue {
 .app-popit {
   width: 100%;
   max-width: 600px;
-  border-radius: $borderRadiusLarge;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 4px 42px -3px $boxShadowPopitColor;
   display: flex;
   flex-wrap: wrap;
-}
-
-.orange {
-  background: #eeaeca;
 }
 </style>

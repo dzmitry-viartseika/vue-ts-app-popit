@@ -1,8 +1,10 @@
 <template>
   <button
     class="btn"
+    :class="customBtn"
     @click="handleClickEvent"
     :title="buttonText"
+    :disabled="disabled"
   >
     {{ buttonText }}
   </button>
@@ -17,9 +19,14 @@ import {
 export default class ButtonTemplate extends Vue {
   @Prop({ type: String, required: true })
   buttonText;
-  // TODO emit vue component style
 
-  handleClickEvent():void {
+  @Prop({ type: String, default: 'btn-info' })
+  customBtn;
+
+  @Prop({ type: Boolean, default: false })
+  disabled;
+
+  handleClickEvent() {
     this.$emit('handleClickEvent');
   }
 }
