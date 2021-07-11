@@ -13,7 +13,7 @@
 import {
   Vue, Component, Prop, PropSync,
 } from 'vue-property-decorator';
-import { IPopitItem } from '@/models.d';
+import { IPopitItem } from '@/models/models';
 import PopitItemRow from '@/components/Popit/PopitItemRow.vue';
 
 // eslint-disable-next-line import/no-unresolved,@typescript-eslint/no-var-requires

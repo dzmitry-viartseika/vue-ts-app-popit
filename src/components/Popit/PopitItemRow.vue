@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { IPopitItem } from '@/models.d';
+import { IPopitItem } from '@/models/models.d';
 import PopitItemCircle from '@/components/Popit/PopitItemCircle.vue';
 
 @Component({
